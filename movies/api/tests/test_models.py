@@ -12,4 +12,4 @@ class TestMovieModel(TestCase):
         self.assertEqual(Movie.objects.count(), 1)
 
     def test_movie_representation(self):
-        self.assertEqual(self.note.name, str(self.movie))
+        self.assertEqual(self.movie.name, str(self.movie))

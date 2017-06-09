@@ -25,7 +25,7 @@ class TestNoteApi(APITestCase):
 
     def test_getting_movies(self):
         response = self.client.get(reverse('movies'), format="json")
-        self.assertEqual(len(response.data['results']), 1)
+        self.assertEqual(len(response.data), 1)
 
     def test_updating_movie(self):
         response = self.client.put(reverse('detail', kwargs={'pk': 1}), {
@@ -34,7 +34,7 @@ class TestNoteApi(APITestCase):
         }, format="json")
 
         # check info returned has the update
-        self.assertEqual('Test Space Between Us updated', response.data['name'])
+        self.assertEqual('The Space Between Us updated', response.data['name'])
 
     def test_deleting_movie(self):
         response = self.client.delete(reverse('detail', kwargs={'pk': 1}))
